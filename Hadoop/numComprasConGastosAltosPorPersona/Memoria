@@ -1,0 +1,23 @@
+Nombre: Fanor Camacho
+Tiempo empleado: 40 minutos
+
+
+Lineas de comando a ejecutar:
+
+touch "persona dinero gastado.txt"
+touch mapperPersonas.py
+touch reduceGasto.py
+chmod u+x mapperPersonas.py
+chmod u+x reduceGasto.py
+
+
+
+#Para probar mi codigo en local usaba el siguiente:#
+
+cat "persona dinero gastado.txt" | ./mapperPersonas.py |sort -k1,1 | ./reduceGasto.py > compraGastoAlto
+
+#Ejecutando en Hadoop#
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.9.2.jar -file ./mapperPersonas.py -mapper ./mapperPersonas.py -file ./reduceGasto.py -reducer ./reduceGasto.py -combiner ./mapperPersonas.py -input "persona dinero gastado.txt" -output ./ComprasGastoAlto
+
+

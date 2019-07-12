@@ -1,0 +1,26 @@
+Nombre: Fanor Camacho
+Tiempo empleado: 20 minutos
+
+
+Lineas de comando a ejecutar:
+
+
+touch reduceMinimoGasto.py 
+touch mapperPersonas.py
+chmod u+x mapperPersonas.py
+chmod u+x reduceMinimoGasto.py 
+
+
+#Para probar mi codigo en local usaba el siguiente:#
+
+cat "persona dinero_gastado.txt" | ./mapperPersonas.py |sort -k1,1 | ./reduceMinimoGasto.py > minimoGastoPersona
+
+
+#Ejecutando en Hadoop#
+
+
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.9.2.jar -file ./mapperPersonas.py -mapper ./mapperPersonas.py -file ./reduceMinimoGasto.py  -reducer ./reduceMinimoGasto.py  -combiner ./mapperPersonas.py -input "persona dinero_gastado.txt" -output ./minimoGastoPersona
+
+
+

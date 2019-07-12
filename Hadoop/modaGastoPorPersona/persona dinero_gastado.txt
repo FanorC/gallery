@@ -1,0 +1,10 @@
+Alicia	120
+Alicia	120
+Alicia	80
+Bob	50
+Alicia	120
+Alicia	30
+Bob	50
+Bob	130
+Alicia	120
+Bob	50

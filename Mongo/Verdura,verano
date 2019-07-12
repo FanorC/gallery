@@ -1,0 +1,1 @@
+db.getCollection('recetas').find({$and:[{"tags":"verdura" }, {"tags":"verano"}]})

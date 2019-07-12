@@ -1,0 +1,25 @@
+
+Nombre: Fanor Camacho
+Tiempo empleado: 360 minutos
+
+
+Lineas de comando a ejecutar:
+
+
+chmod u+x mapperEstimacion.py
+chmod u+x reduceEstimacion.py
+
+
+
+#Para probar mi codigo en local usaba el siguiente:#
+
+
+cat "dataset.txt" | ./mapperestimacion.py |sort -k1,1 | ./reduceEstimacion.py > errorEstimacion
+
+#Ejecutando en Hadoop#
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.9.2.jar -file ./mapperestimacion.py -mapper ./mapperestimacion.py -file ./reduceEstimacion.py -reducer ./reduceEstimacion.py -input "dataset.txt" -output ./CalculoerrorEstimacion
+
+
+
+
